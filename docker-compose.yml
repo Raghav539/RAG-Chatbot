@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  backend:
+    build: .
+    container_name: rag-chatbot
+    ports:
+      - "8090:8090"
+    env_file:
+      - .env
+    volumes:
+      - ./chroma_db:/app/chroma_db
+    restart: unless-stopped
